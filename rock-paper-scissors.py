@@ -5,10 +5,7 @@ October 16, 2022
 
 RPS-7 (Rock, Paper, Scissors, Sponge, Fire, Water and Air)
 
-Prompts the user 
-
-compares 
-against a set of game rules 
+Prompts the user for an item, and compares it to the computer's randomly-generated response against a set of game rules.
 """
 # __doc__ attribute used for documentation - learned from COMP525
 
