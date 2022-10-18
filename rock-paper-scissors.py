@@ -19,12 +19,11 @@ Then, once the computer chooses its item the LED corresponding with that item wi
 """
 # __doc__ attribute used for documentation - learned from COMP525
 #!/usr/bin/env python
-
-# Imports
-
 # import RPi.GPIO as GPIO
 # import time
 import random    # For use in get_computer_response()
+
+# LED Variables
 
 # LedPinRedFire = 20    # pin GPIO20
 # LedPinOrangeRock = 21    # pin GPIO21
@@ -33,6 +32,8 @@ import random    # For use in get_computer_response()
 # LedPinBlueWater = 24    # pin GPIO24
 # LedPinPurpleScissors = 25    # pin GPIO25
 # LedPinPinkPaper = 26    # pin GPIO26
+
+# LED Setup
 
 # GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by standard marking
 
@@ -56,6 +57,8 @@ import random    # For use in get_computer_response()
 
 # GPIO.setup(LedPinPinkPaper, GPIO.OUT)   # Set mode to output
 # GPIO.output(LedPinPinkPaper, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# LED Blink Functions
 
 # def led_blink_strong(led_to_blink):
 	# GPIO.output(led_to_blink, GPIO.LOW)    # LED on
