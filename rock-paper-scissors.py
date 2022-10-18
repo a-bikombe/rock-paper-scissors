@@ -218,5 +218,3 @@ def main():
 # Sets main() function as starting point - learned in COMP525
 if __name__ == "__main__":
     main()
-
-# TODO: Add Pi annunciators
