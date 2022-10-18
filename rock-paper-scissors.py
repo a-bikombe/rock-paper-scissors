@@ -5,11 +5,70 @@ October 16, 2022
 
 RPS-7 (Rock, Paper, Scissors, Sponge, Fire, Water and Air)
 
-Prompts the user for an item, and compares it to the computer's randomly-generated response against a set of game rules.
+Prompts the user for an item, and compares it to the computer's randomly-generated response against a set of game rules. Once the user enters their desired item, the LED that corresponds with that item will turn on for 1 second then off again:
+
+	1. Red - Fire
+	2. Orange - Rock
+	3. Yellow - Sponge
+	4. Green - Air
+	5. Blue - Water
+	6. Purple - Scissors
+	7. Pink - Paper
+
+Then, once the computer chooses its item the LED corresponding with that item will turn on for the same amount of time. Finally, whichever item wins between the two will blink five times at a 0.5-second interval, indicating the winner.
 """
 # __doc__ attribute used for documentation - learned from COMP525
+#!/usr/bin/env python
 
+# Imports
+
+# import RPi.GPIO as GPIO
+# import time
 import random    # For use in get_computer_response()
+
+# LedPinRedFire = 20    # pin GPIO20
+# LedPinOrangeRock = 21    # pin GPIO21
+# LedPinYellowSponge = 22    # pin GPIO22
+# LedPinGreenAir = 23    # pin GPIO23
+# LedPinBlueWater = 24    # pin GPIO24
+# LedPinPurpleScissors = 25    # pin GPIO25
+# LedPinPinkPaper = 26    # pin GPIO26
+
+# GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by standard marking
+
+# GPIO.setup(LedPinRedFire, GPIO.OUT)   # Set mode to output
+# GPIO.output(LedPinRedFire, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# GPIO.setup(LedPinOrangeRock, GPIO.OUT)   # Set mode to output
+# GPIO.output(LedPinOrangeRock, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# GPIO.setup(LedPinYellowSponge, GPIO.OUT)   # Set mode to output
+# GPIO.output(LedPinYellowSponge, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# GPIO.setup(LedPinGreenAir, GPIO.OUT)   # Set mode to output
+# GPIO.output(LedPinGreenAir, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# GPIO.setup(LedPinBlueWater, GPIO.OUT)   # Set mode to output
+# GPIO.output(LedPinBlueWater, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# GPIO.setup(LedPinPurpleScissors, GPIO.OUT)   # Set mode to output
+# GPIO.output(LedPinPurpleScissors, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# GPIO.setup(LedPinPinkPaper, GPIO.OUT)   # Set mode to output
+# GPIO.output(LedPinPinkPaper, GPIO.HIGH) # Set high(+3.3V) to turn off led
+
+# def led_blink_strong(led_to_blink):
+	# GPIO.output(led_to_blink, GPIO.LOW)    # LED on
+    # time.sleep(1)    # On for 1 second
+	# GPIO.output(led_to_blink, GPIO.LOW)    # LED off
+	# time.sleep(0.5)    # Off for 0.5 seconds
+
+# def led_blink_rapid(led_to_blink):
+	# for blink_num in range(1, 5)    # Blink 5 times
+		# GPIO.output(led_to_blink, GPIO.LOW)  # LED on
+		# time.sleep(0.5)    # On for 0.5 seconds
+		# GPIO.output(led_to_blink, GPIO.LOW)  # LED off
+		# time.sleep(0.5)    # Off for 0.5 seconds
 
 # Response: [Items that any given response defeats]
 game_rules = {
@@ -50,18 +109,25 @@ def get_user_response(user_response):
 	# If user's input does not match any item, prompt user again
 	match user_response.title():
 		case 'Rock':
+			# led_blink_strong(LedPinOrangeRock)
 			result('Rock')
 		case 'Paper':
+			# led_blink_strong(LedPinPinkPaper)
 			result('Paper')
 		case 'Scissors':
+			# led_blink_strong(LedPinPurpleScissors)
 			result('Scissors')
 		case 'Fire':
+			# led_blink_strong(LedPinRedFire)
 			result('Fire')
 		case 'Sponge':
+			# led_blink_strong(LedPinYellowSponge)
 			result('Sponge')
 		case 'Air':
+			# led_blink_strong(LedPinGreenAir)
 			result('Air')
 		case 'Water':
+			# led_blink_strong(LedPinBlueWater)
 			result('Water')
 		case _:
 			print('Invalid Response. Please Try Again.')
@@ -84,18 +150,25 @@ def get_computer_response():
 	# Matches generated number to one of the items
 	match computer_number:
 		case 1:
+			# led_blink_strong(LedPinOrangeRock)
 			computer_reponse = 'Rock'
 		case 2:
+			# led_blink_strong(LedPinPinkPaper)
 			computer_reponse = 'Paper'
 		case 3:
+			# led_blink_strong(LedPinPurpleScissors)
 			computer_reponse = 'Scissors'
 		case 4:
+			# led_blink_strong(LedPinRedFire)
 			computer_reponse = 'Fire'
 		case 5:
+			# led_blink_strong(LedPinYellowSponge)
 			computer_reponse = 'Sponge'
 		case 6:
+			# led_blink_strong(LedPinGreenAir)
 			computer_reponse = 'Air'
 		case 7:
+			# led_blink_strong(LedPinBlueWater)
 			computer_reponse = 'Water'
 		case _:
 			print('Invalid Computer Response')
@@ -143,6 +216,24 @@ def match_to_rules(game_rules, your_item, computer_item):
 				# If the computer's item is under the list, print out that you defeat the computer
 				if computer_item in computer_item_value:
 					print(your_item, computer_item_value, '. You win.')
+					# Blink winning LED
+					# match your_item:
+						# case 'Rock':
+							# led_blink_rapid(LedPinOrangeRock)
+						# case 'Paper':
+							# led_blink_rapid(LedPinPinkPaper)
+						# case 'Scissors':
+							# led_blink_rapid(LedPinPurpleScissors)
+						# case 'Fire':
+							# led_blink_rapid(LedPinRedFire)
+						# case 'Sponge':
+							# led_blink_rapid(LedPinYellowSponge)
+						# case 'Air':
+							# led_blink_rapid(LedPinGreenAir)
+						# case 'Water':
+							# led_blink_rapid(LedPinBlueWater)
+						# case _:
+							# print('Invalid')
 
 	# If the computer's item is not under the list of items that your item defeats,
 	# loop through game rules to find the computer's item
@@ -153,6 +244,24 @@ def match_to_rules(game_rules, your_item, computer_item):
 				# If your item is under the list, print out that it defeats you
 				if your_item in your_item_value:
 					print(computer_item, your_item_value, '. I win!')
+					# Blink winning LED
+					# match computer_item:
+						# case 'Rock':
+							# led_blink_rapid(LedPinOrangeRock)
+						# case 'Paper':
+							# led_blink_rapid(LedPinPinkPaper)
+						# case 'Scissors':
+							# led_blink_rapid(LedPinPurpleScissors)
+						# case 'Fire':
+							# led_blink_rapid(LedPinRedFire)
+						# case 'Sponge':
+							# led_blink_rapid(LedPinYellowSponge)
+						# case 'Air':
+							# led_blink_rapid(LedPinGreenAir)
+						# case 'Water':
+							# led_blink_rapid(LedPinBlueWater)
+						# case _:
+							# print('Invalid')
 
 def play_again():
 	"""
@@ -218,5 +327,3 @@ def main():
 # Sets main() function as starting point - learned in COMP525
 if __name__ == "__main__":
     main()
-
-# TODO: Add Pi annunciators
