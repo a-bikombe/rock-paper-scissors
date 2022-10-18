@@ -1,0 +1,16 @@
+Rock, Paper, Scissors, Fire, Sponge, Air, Water? air
+You entered Air
+I entered Paper
+Paper fans Air . I win!
+Play again? Y/N: y
+Rock, Paper, Scissors, Fire, Sponge, Air, Water? sponge
+You entered Sponge
+I entered Water
+Sponge absorbs Water . You win.
+Play again? Y/N: y
+Rock, Paper, Scissors, Fire, Sponge, Air, Water? rock
+You entered Rock
+I entered Sponge
+Rock crushes Sponge . You win.
+Play again? Y/N: n
+Thank you for playing!
