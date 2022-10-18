@@ -277,23 +277,18 @@ def play_again():
 			None
 	"""
 	play_again = input('Play again? Y/N: ')
-
-	# Variables for counting invalid tries
-	try_num = 1
-	num_of_more_tries = 9
 	
 	# If 'Y', start game over
 	# If 'N', end game
-	# If any other input, give user num_of_more_tries more tries to answer 'Y' or 'N'
+	# If any other input, print Invalid and end game
 	if play_again.title() == 'Y':
 		user_input()
 	elif play_again.title() == 'N':
 		print('Thank you for playing!')
+		return False
 	else:
-		while try_num <= num_of_more_tries:
-			input('Invalid. Play again? Y/N: ')
-			try_num += 1
-		print('Maximum of', num_of_more_tries + 1, 'tries exceeded. Goodbye.')
+		print('Invalid. Goodbye.')
+		return False
 		
 def result(user_response):
 	"""
