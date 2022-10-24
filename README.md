@@ -6,15 +6,9 @@ Rock Paper Scissors game that prompts the user for an item, and compares it to t
 
 ## Used In This Repository
 
-- Python 3.10.8
+- [Python 3.10.8](https://www.python.org/downloads/)
 
 ## Getting Started
-
-### Dependencies
-
-No dependencies.
-
-### Setup
 
 Mac:
 * Must have `#!/usr/bin/env python3` at beginnning of program
