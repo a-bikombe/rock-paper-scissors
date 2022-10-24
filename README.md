@@ -16,7 +16,9 @@ No dependencies.
 
 ### Setup
 
-* Deployment: CLI
+Mac:
+* Must have `#!/usr/bin/env python3` at beginnning of program
+* To Run: `./${filename}.py`
 
 ## Version History
 
